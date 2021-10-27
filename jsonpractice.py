@@ -1,17 +1,17 @@
 import json
 import requests
 
-def login(mail, password):
+def login(email, password):
     
-    s = requests.Session()
+    m = requests.Session()
     dictionary = {
-        "email": mail,
+        "email": email,
         "password": password,
         
     }
-    res = s.post("example site.com", json=dictionary)
-    s.headers.update({"authorization": json.loads(res.content)["token"]})
+    res = m.post("example site.com", json=dictionary)
+    m.headers.update({"authorization": json.loads(res.content)["token"]})
     print(res.content)
-    return s
+    return m
 
 session = login("example@example.com, qwerty123")
